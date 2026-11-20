@@ -5,6 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>欲望动物人格测试</title>
 <link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var ua = navigator.userAgent || "";
+  if (!/MicroMessenger/i.test(ua)) return;
+  window.__WECHAT_BLOCK__ = true;
+  document.documentElement.classList.add("wechat-block");
+  document.addEventListener("DOMContentLoaded", function () {
+    var app = document.getElementById("app");
+    if (!app) return;
+    app.className = "screen-wechat";
+    app.innerHTML = ""
+      + '<section class="wechat-gate" role="dialog" aria-modal="true" aria-label="请在浏览器打开">'
+      +   '<p class="archive">OPEN IN BROWSER</p>'
+      +   '<div class="wechat-mark" aria-hidden="true">···</div>'
+      +   '<h1>请在默认浏览器打开</h1>'
+      +   '<p class="wechat-lead">为获得最佳高清海报生成体验，请点击右上角【···】选择【在默认浏览器打开】。</p>'
+      +   '<ol class="wechat-steps">'
+      +     '<li>点右上角 <b>···</b></li>'
+      +     '<li>选择 <b>在默认浏览器打开</b> / <b>在 Safari 打开</b></li>'
+      +     '<li>再开始测试并保存海报</li>'
+      +   '</ol>'
+      +   '<p class="wechat-note">微信内置浏览器可能限制长图保存，也会影响域名安全检测。</p>'
+      + '</section>';
+  });
+})();
+</script>
 </head>
 <body>
 <main id="app" class="screen-home">

@@ -1049,9 +1049,34 @@ window.__scoreAll = scoreAll;
 window.__ANIMALS = ANIMALS;
 window.__missingLogos = () => ANIMALS.filter((item) => !item.hasLogo).map((item) => item.name);
 
+function isWeChatBrowser() {
+  return /MicroMessenger/i.test(navigator.userAgent || "") || !!window.__WECHAT_BLOCK__;
+}
+
+function renderWeChatGate() {
+  if (!app) return;
+  app.className = "screen-wechat";
+  app.innerHTML = `
+    <section class="wechat-gate" role="dialog" aria-modal="true" aria-label="请在浏览器打开">
+      <p class="archive">OPEN IN BROWSER</p>
+      <div class="wechat-mark" aria-hidden="true">···</div>
+      <h1>请在默认浏览器打开</h1>
+      <p class="wechat-lead">为获得最佳高清海报生成体验，请点击右上角【···】选择【在默认浏览器打开】。</p>
+      <ol class="wechat-steps">
+        <li>点右上角 <b>···</b></li>
+        <li>选择 <b>在默认浏览器打开</b> / <b>在 Safari 打开</b></li>
+        <li>再开始测试并保存海报</li>
+      </ol>
+      <p class="wechat-note">微信内置浏览器可能限制长图保存，也会影响域名安全检测。</p>
+    </section>
+  `;
+}
+
 try {
-  restore();
+  if (isWeChatBrowser()) renderWeChatGate();
+  else restore();
 } catch (error) {
   console.error(error);
-  renderStart();
+  if (isWeChatBrowser()) renderWeChatGate();
+  else renderStart();
 }

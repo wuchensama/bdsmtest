@@ -40,6 +40,66 @@ button { cursor: pointer; }
   padding: 28px 0 72px;
 }
 
+.screen-wechat {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+}
+.wechat-gate {
+  width: min(100%, 420px);
+  margin: 0 auto;
+  padding: 28px 20px 32px;
+  border-radius: 24px;
+  background: #161519;
+  text-align: center;
+  box-shadow: 0 18px 48px rgba(0,0,0,.35);
+}
+.wechat-mark {
+  width: 64px;
+  height: 64px;
+  margin: 10px auto 16px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: rgba(223,195,140,.12);
+  color: var(--accent);
+  font-size: 28px;
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+.wechat-gate h1 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.25;
+}
+.wechat-lead {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.wechat-steps {
+  margin: 0 0 16px;
+  padding: 14px 16px 14px 34px;
+  text-align: left;
+  border-radius: 16px;
+  background: #1E1C22;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.wechat-steps b { color: var(--accent); }
+.wechat-note {
+  margin: 0;
+  color: rgba(243,236,223,.45);
+  font-size: 12px;
+  line-height: 1.5;
+}
+html.wechat-block body {
+  overflow: hidden;
+}
+
 .screen-home {
   min-height: calc(100vh - 56px);
   display: flex;
